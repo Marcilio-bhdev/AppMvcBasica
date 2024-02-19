@@ -1,6 +1,47 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Formulario Teste Cálculo Hipermercado";
 }
 <h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's privacy policy.</p>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculo de preços</title>
+</head>
+<body>
+    <form method="post">
+        <div class="col-md-12">
+            <fieldset>
+                <legend>informe aqui o que precisa para oi calculo</legend>
+                <div class="col-md-2">
+                    <label for="CustoName">Custo</label>
+                    <input type="number" name="CustoName" value="" />
+                </div>
+                <br />
+                <div class="col-md-2">
+                    <label for="ValidadeName">Validade</label>
+                    <input type="datetime" name="ValidadeName" value="" />
+                </div>
+                <br />
+                <div class="col-md-3">
+                    <label for="ValidadeName">Validade Expirar:</label>
+                    <input type="datetime" name="ValidadeName" value="" />
+                </div>
+                <br />
+                <div class="col-md-3">
+                    <label for="Refrigeracao">Refrigeração:</label>
+                    <label for="RefrigeracaoSim">Sim</label>
+                    <input type="radio" name="RefrigeracaoSim" value="1" />
+                    <label for="RefrigeracaoNao">Não</label>
+                    <input type="radio" name="RefrigeracaoNao" value="0" />
+                </div>
+                <br />
+                <br />
+                <div class="col-md-2">
+                    <label>&nbsp;</label>
+                    <input type="submit" value="Submit" class="submit" />
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</body>
+</html>

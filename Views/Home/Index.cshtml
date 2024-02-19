@@ -1,8 +1,66 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Formulario Teste Cálculo Hipermercado";
 }
+<h1>@ViewData["Title"]</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculo de preços</title>
+</head>
+<body>
+    <form method="post">
+        <div class="col-md-12">
+            <fieldset>
+                <legend>informe aqui o que precisa para oi calculo</legend>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="ProdutoName">Nome Produto</label>
+                        <input type="number" name="ProdutoName" value="" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="CustoName">Custo</label>
+                        <input type="number" name="CustoName" value="" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <label for="ValidadeName">Validade</label>
+                        <input type="datetime" name="ValidadeName" value="" />
+                    </div>
+                    <br />
+                    <div class="col-md-2">
+                        <label for="ValidadeName">Validade Expirar:</label>
+                        <input type="datetime" name="ValidadeName" value="" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <br />
+                    <div class="col-md-3">
+                        <label for="Refrigeracao">Refrigeração:</label>
+                        <label for="RefrigeracaoSim">Sim</label>
+                        <input type="radio" name="RefrigeracaoSim" value="1" />
+                        <label for="RefrigeracaoNao">Não</label>
+                        <input type="radio" name="RefrigeracaoNao" value="0" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="col-md-2">
+                        <label>&nbsp;</label>
+                        <input name="CalculaButton" type="submit" value="Calcular" class="submit" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div id="Result" class="col-md-12" hidden="hidden">
+        <fieldset>
+            <legend>Preço a ser Cobrado</legend>
+            <div class="col-md-2">
+                <label id="resultPreco">&nbsp;</label>
+            </div>
+        </fieldset>
+    </div>
+</body>
+</html>
