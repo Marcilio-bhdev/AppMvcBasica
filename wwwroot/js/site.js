@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿////window.onload = function DesativarDiv() {
+////    var teste = document.getElementById('exibePreco');
+////    teste.hidden=true;
+////}
 
-// Write your JavaScript code.
+function exibirDiv()
+{
+    var teste = document.getElementById('exibePreco');
+    teste.hidden = false;
+}

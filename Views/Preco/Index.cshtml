@@ -1,0 +1,69 @@
+﻿@model AppMvcBasica.Models.PrecoModel
+@{
+    ViewData["Title"] = "Formulario Teste Cálculo Hipermercado";
+}
+<h1>@ViewData["Title"]</h1>
+<form asp-action="Index" asp-controller="Preco">
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Preencha o Produto</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2"> Nome Produto</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NomeProduto, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+                @Html.ValidationMessageFor(model => model.NomeProduto, "Parametro Obrigatorio", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Custo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Custo,  new { htmlAttributes = new { @class = "form-control col-md-4", @Value = @ViewBag.custo} })
+                @Html.ValidationMessageFor(model => model.Custo, "Parametro Obrigatorio", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Validade, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Validade, new { htmlAttributes = new { @class = "form-control col-md-4" } })
+                @Html.ValidationMessageFor(model => model.Validade, "Parametro Obrigatorio", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Refrigeração</label>
+            <div class="col-md-10">
+                <label>Sim</label>
+                @Html.RadioButtonFor(model => model.Refrigeracao, true)
+                <label>Não</label>
+                @Html.RadioButtonFor(model => model.Refrigeracao, false)
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Calcular preço" class="btn btn-primary" id="btnExibePreco" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="form-group" style="float: right; border: 1px solid #000000; margin-top: -450px; margin-right: 300px; width: 300px; " id="exibePreco">
+    <div class="col-md-12">
+        <di class="col-md-4">
+            <label class="control-label"><strong>Preço Final</strong></label>
+        </di>
+        <div class="col-md-8">
+            <label class="control-label">Nome Produto</label><br />
+            <h3>@ViewBag.nomeProduto</h3>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <label class="control-label"><strong>Preço final</strong></label>
+            <h3>@ViewBag.preco</h3>
+        </div>
+    </div>
+</div>
