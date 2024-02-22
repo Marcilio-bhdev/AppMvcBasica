@@ -11,19 +11,16 @@ namespace AppMvcBasica.Models
         [Required(ErrorMessage = "O nome do produto é obrigatório")]
         public string NomeProduto { get; set; }
         [Required(ErrorMessage = "O valor de compra é obrigatório")]
-        public double Custo { get; set; }
-
-        
+        public double Custo { get; set; }        
         [Required(ErrorMessage = "A validade é obrigatório")]
-        [DateLessThanOrEqualToToday]
+        [DateLessThanToToday]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [DataType(DataType.Date)]
         public DateTime Validade { get; set; }
         public bool Refrigeracao { get; set; }
         public double PrecoSugerido { get; set; }
 
-
-        public class DateLessThanOrEqualToToday : ValidationAttribute
+        public class DateLessThanToToday : ValidationAttribute
         {
             public override string FormatErrorMessage(string name)
             {
