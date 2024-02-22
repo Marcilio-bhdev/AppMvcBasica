@@ -8,4 +8,8 @@
     <Content Remove="Views\Preco\Privacy.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="AppMvcBasica.sln" />
+  </ItemGroup>
+
 </Project>

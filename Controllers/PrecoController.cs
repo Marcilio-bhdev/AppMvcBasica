@@ -36,13 +36,28 @@ namespace AppMvcBasica.Controllers
         }
 
         [HttpPost]
-        public ActionResult CalculaButton(PrecoModel precoModel) 
+        public IActionResult CalculaButton(PrecoModel precoModel)
         {
-            var preco = FormulaMagica(precoModel);
-            ViewBag.preco = "R$:" + String.Format("{0:.##}", preco);
-            @ViewBag.nomeProduto = precoModel.NomeProduto.ToString();
+            try
+            {
+                if (precoModel.Validade < DateTime.Now)
+                {
+                   
+                }
 
-            return View();
+                var preco = FormulaMagica(precoModel);
+                ViewBag.preco = "R$:" + String.Format("{0:.##}", preco);
+                @ViewBag.nomeProduto = precoModel.NomeProduto.ToString();
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+
+                return (IActionResult)ex;
+            }
+            
         }
        
         public double FormulaMagica(PrecoModel precoModel)
